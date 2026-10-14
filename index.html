@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vvebuz — Veb-sayt yaratish studiyasi</title>
+<meta name="description" content="Biznesingiz uchun tez, zamonaviy va ishonchli veb-saytlar. Telegram: @vvebuz">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EAF0F7;--ink:#0E1A33;--mute:#4D5B78;--blue:#2B4BFF;--sun:#FFC53D;--card:#fff;--line:#CBD5E6;--onblue:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1426;--ink:#E8EEFA;--mute:#9BA9C7;--blue:#6C84FF;--card:#15203A;--line:#26335A;--onblue:#0C1426}}
+:root[data-theme="dark"]{--bg:#0C1426;--ink:#E8EEFA;--mute:#9BA9C7;--blue:#6C84FF;--card:#15203A;--line:#26335A;--onblue:#0C1426}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Unbounded,Manrope,system-ui,sans-serif;line-height:1.15;margin:0;letter-spacing:-.01em}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h2{font-size:clamp(26px,5vw,38px);font-weight:700;max-width:18ch}
+.lead{color:var(--mute);max-width:56ch;margin:14px 0 0}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font:700 18px Unbounded,sans-serif;text-decoration:none}
+.logo i{font-style:normal;color:var(--blue)}
+nav{display:none;gap:24px;font-weight:500;font-size:15px}
+nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--ink)}
+@media(min-width:760px){nav{display:flex}}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font:700 15px Manrope,sans-serif;text-decoration:none;border:2px solid var(--ink);cursor:pointer;background:transparent;color:var(--ink);transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn.pri{background:var(--blue);border-color:var(--blue);color:var(--onblue)}
+.btn.sm{padding:9px 16px;font-size:14px}
+
+/* hero */
+.hero{padding:48px 0 64px}
+.hero .grid{display:grid;gap:40px;align-items:center}
+@media(min-width:860px){.hero .grid{grid-template-columns:1.05fr .95fr}}
+h1{font-size:clamp(32px,7vw,56px);font-weight:700}
+.hero p{color:var(--mute);font-size:18px;max-width:46ch;margin:20px 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:28px;font-size:14px;font-weight:500;color:var(--mute)}
+.trust span::before{content:"✓ ";color:var(--blue);font-weight:700}
+.browser{background:var(--card);border:2px solid var(--ink);border-radius:16px;box-shadow:10px 10px 0 var(--sun);overflow:hidden}
+.chrome{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:2px solid var(--ink)}
+.chrome b{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.url{flex:1;margin-left:8px;font-size:13px;background:var(--bg);border-radius:8px;padding:4px 12px;color:var(--mute);min-height:26px;white-space:nowrap;overflow:hidden}
+.url::after{content:"";display:inline-block;width:2px;height:13px;background:var(--blue);vertical-align:-2px;margin-left:2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.screen{padding:18px;height:250px;position:relative}
+.mk{position:absolute;inset:18px;display:flex;flex-direction:column;gap:10px;opacity:0;transition:opacity .5s}
+.mk.on{opacity:1}
+.mk .h{height:90px;border-radius:10px}
+.mk .r{display:flex;gap:10px;flex:1}.mk .r div{flex:1;border-radius:8px;background:var(--bg)}
+.mk .t{height:12px;border-radius:6px;background:var(--line);width:70%}.mk .t.s{width:45%}
+.mk .bt{height:26px;width:90px;border-radius:8px}
+
+/* services */
+.sv{display:grid;gap:16px;margin-top:36px}
+@media(min-width:700px){.sv{grid-template-columns:repeat(2,1fr)}}
+.sv article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+.sv h3{font-size:18px;margin-bottom:8px}
+.sv p{margin:0;color:var(--mute);font-size:16px}
+.sv .ic{font-size:28px;margin-bottom:10px;display:block}
+
+/* works */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 24px}
+.tab{padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:500 14px Manrope,sans-serif;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.works{display:grid;gap:18px}
+@media(min-width:700px){.works{grid-template-columns:repeat(2,1fr)}}
+.work{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.work[hidden]{display:none}
+.shot{height:170px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.shot i{display:block;border-radius:6px;background:rgba(255,255,255,.55)}
+.work .in{padding:18px 22px 22px}
+.work h3{font-size:17px}
+.work p{margin:6px 0 0;font-size:15px;color:var(--mute)}
+.tag{display:inline-block;margin-top:12px;font-size:13px;font-weight:700;color:var(--blue)}
+.note{margin-top:22px;font-size:14px;color:var(--mute)}
+
+/* process */
+.steps{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:48px 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--line)}
+.steps li::before{content:counter(s);font:700 20px Unbounded,sans-serif;color:var(--blue)}
+.steps h3{font-size:17px;margin-bottom:4px}
+.steps p{margin:0;color:var(--mute);font-size:16px}
+
+/* why */
+.why{background:var(--ink);color:var(--bg);border-radius:24px;padding:40px 24px}
+.why h2{color:var(--bg)}
+.why ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
+@media(min-width:700px){.why ul{grid-template-columns:repeat(2,1fr);gap:18px 36px}.why{padding:56px}}
+.why li{padding-left:30px;position:relative;opacity:.92}
+.why li::before{content:"✓";position:absolute;left:0;color:var(--sun);font-weight:700}
+
+/* contact */
+.contact{display:grid;gap:32px}
+@media(min-width:860px){.contact{grid-template-columns:1fr 1fr}}
+.links{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+form{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:14px}
+label{font-size:14px;font-weight:700;display:grid;gap:6px}
+input,select,textarea{font:inherit;font-size:16px;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:96px;resize:vertical}
+.msg{font-size:14px;color:var(--mute);min-height:20px;margin:0}
+footer{border-top:1px solid var(--line);padding:28px 0;font-size:14px;color:var(--mute)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">vveb<i>.</i>uz</a>
+    <nav aria-label="Asosiy menyu">
+      <a href="#xizmatlar">Xizmatlar</a><a href="#ishlar">Ishlar</a><a href="#jarayon">Jarayon</a><a href="#aloqa">Aloqa</a>
+    </nav>
+    <a class="btn pri sm" href="https://t.me/vvebuz" target="_blank" rel="noopener">Telegramga yozish</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <h1>Biznesingizga mijoz olib keladigan veb-sayt</h1>
+      <p>Tez ochiladigan, telefonda qulay va ishonch uyg‘otadigan saytlarni noldan yaratib beraman. Dizayndan tortib ishga tushirishgacha — bir joyda.</p>
+      <div class="cta">
+        <a class="btn pri" href="#aloqa">Sayt buyurtma qilish</a>
+        <a class="btn" href="#ishlar">Ishlarni ko‘rish</a>
+      </div>
+      <div class="trust"><span>Mobil uchun moslangan</span><span>Tez yuklanadi</span><span>Qo‘llab-quvvatlash</span></div>
+    </div>
+    <div class="browser" aria-hidden="true">
+      <div class="chrome"><b></b><b></b><b></b><div class="url" id="url"></div></div>
+      <div class="screen" id="screen"></div>
+    </div>
+  </div>
+</section>
+
+<section id="xizmatlar">
+  <div class="wrap">
+    <h2>Nima yaratib beraman</h2>
+    <p class="lead">Har bir loyiha sizning biznesingiz va mijozlaringiz uchun alohida o‘ylab ishlanadi.</p>
+    <div class="sv">
+      <article><span class="ic">🚀</span><h3>Landing sahifa</h3><p>Bitta mahsulot yoki xizmatni sotish uchun. Mijoz sahifaga kirib, darhol buyurtma beradi.</p></article>
+      <article><span class="ic">🏢</span><h3>Vizitka va korporativ sayt</h3><p>Kompaniyangizni ishonchli ko‘rsatadigan, ma’lumotlari tartibli sayt.</p></article>
+      <article><span class="ic">🛒</span><h3>Onlayn do‘kon</h3><p>Katalog, savatcha va buyurtmalarni qabul qilish. Telegram bilan ulash mumkin.</p></article>
+      <article><span class="ic">🛠️</span><h3>Tahrirlash va tezlashtirish</h3><p>Mavjud saytingizni yangilayman, xatolarini tuzataman va tezligini oshiraman.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="ishlar">
+  <div class="wrap">
+    <h2>Loyihalar namunasi</h2>
+    <p class="lead">Turli sohalar uchun tayyorlangan sayt turlari.</p>
+    <div class="tabs" role="group" aria-label="Filtr">
+      <button class="tab" data-f="all" aria-pressed="true">Hammasi</button>
+      <button class="tab" data-f="land" aria-pressed="false">Landing</button>
+      <button class="tab" data-f="shop" aria-pressed="false">Do‘kon</button>
+      <button class="tab" data-f="corp" aria-pressed="false">Korporativ</button>
+    </div>
+    <div class="works">
+      <article class="work" data-c="land"><div class="shot" style="background:#2B4BFF"><i style="height:14px;width:40%"></i><i style="height:34px;width:80%"></i><i style="height:34px;width:60%"></i><i style="height:28px;width:30%;background:#FFC53D"></i></div><div class="in"><h3>Ta’lim markazi</h3><p>Kursga yozilish uchun landing: dastur, narx va ariza formasi.</p><span class="tag">Landing sahifa</span></div></article>
+      <article class="work" data-c="shop"><div class="shot" style="background:#FFC53D;flex-direction:row;flex-wrap:wrap"><i style="height:70px;width:30%;background:#fff"></i><i style="height:70px;width:30%;background:#fff"></i><i style="height:70px;width:30%;background:#fff"></i><i style="height:60px;width:30%;background:#0E1A33;opacity:.85"></i><i style="height:60px;width:30%;background:#0E1A33;opacity:.85"></i></div><div class="in"><h3>Kiyim do‘koni</h3><p>Katalog, filtr va buyurtma Telegram botga tushadi.</p><span class="tag">Onlayn do‘kon</span></div></article>
+      <article class="work" data-c="corp"><div class="shot" style="background:#0E1A33"><i style="height:16px;width:25%"></i><i style="height:60px;width:100%"></i><i style="height:14px;width:70%"></i><i style="height:14px;width:50%"></i></div><div class="in"><h3>Qurilish kompaniyasi</h3><p>Xizmatlar, bajarilgan ishlar galereyasi va aloqa sahifasi.</p><span class="tag">Korporativ sayt</span></div></article>
+      <article class="work" data-c="land"><div class="shot" style="background:#1E8E6E"><i style="height:44px;width:70%"></i><i style="height:14px;width:50%"></i><i style="height:28px;width:35%;background:#fff"></i></div><div class="in"><h3>Restoran va yetkazib berish</h3><p>Menyu, joy band qilish va yetkazib berish buyurtmasi.</p><span class="tag">Landing sahifa</span></div></article>
+    </div>
+    <p class="note">Bu — namunaviy ko‘rinishlar. O‘zingizning haqiqiy ishlaringizni shu yerga qo‘shing (pastdagi izohga qarang).</p>
+  </div>
+</section>
+
+<section id="jarayon">
+  <div class="wrap">
+    <h2>Qanday ishlaymiz</h2>
+    <ol class="steps">
+      <li><div><h3>Suhbat</h3><p>Telegramda maqsad, soha va xohishlaringizni muhokama qilamiz.</p></div></li>
+      <li><div><h3>Dizayn va narx kelishuvi</h3><p>Sayt ko‘rinishini taklif qilaman. Muddat va narxni oldindan kelishamiz.</p></div></li>
+      <li><div><h3>Yaratish</h3><p>Saytni tayyorlayman, jarayonni sizga ko‘rsatib boraman.</p></div></li>
+      <li><div><h3>Ishga tushirish</h3><p>Domen va hostingga joylayman, ishlashini tekshiraman va o‘rgataman.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="why">
+      <h2>Nega menga ishonish mumkin</h2>
+      <ul>
+        <li>Narx va muddat ish boshlanishidan oldin aniq kelishiladi</li>
+        <li>Kod toza yozilgan, sayt telefonda ham qulay ishlaydi</li>
+        <li>Ish jarayonini bosqichma-bosqich ko‘rib borasiz</li>
+        <li>Topshirgandan keyin ham savollaringizga javob beraman</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="aloqa">
+  <div class="wrap contact">
+    <div>
+      <h2>Loyihangizni muhokama qilamiz</h2>
+      <p class="lead">Qisqacha yozing — Telegramda javob beraman. Birinchi maslahat bepul.</p>
+      <div class="links">
+        <a class="btn pri" href="https://t.me/vvebuz" target="_blank" rel="noopener">Telegram kanal: @vvebuz</a>
+        <a class="btn" href="https://instagram.com/uzvveb" target="_blank" rel="noopener">Instagram: @uzvveb</a>
+      </div>
+    </div>
+    <form id="f">
+      <label>Ismingiz<input id="n" required autocomplete="name" placeholder="Ismingiz"></label>
+      <label>Sayt turi
+        <select id="t"><option>Landing sahifa</option><option>Vizitka / korporativ sayt</option><option>Onlayn do‘kon</option><option>Boshqa</option></select>
+      </label>
+      <label>Qisqacha tavsif<textarea id="d" placeholder="Qanday sayt kerak?"></textarea></label>
+      <button class="btn pri" type="submit">Telegramda yuborish</button>
+      <p class="msg" id="m" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="y"></span> Vvebuz. Barcha huquqlar himoyalangan.</span><span><a href="https://t.me/vvebuz" target="_blank" rel="noopener">Telegram</a> · <a href="https://instagram.com/uzvveb" target="_blank" rel="noopener">Instagram</a></span></div></footer>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+
+// Hero: sayt namunalari almashadi
+var demos=[
+ {u:'talim-markazi.uz',c:'#2B4BFF',a:'#FFC53D'},
+ {u:'kiyim-dokoni.uz',c:'#FFC53D',a:'#0E1A33'},
+ {u:'qurilish-kompaniya.uz',c:'#1E8E6E',a:'#FFC53D'}
+];
+var scr=document.getElementById('screen'),urlEl=document.getElementById('url');
+demos.forEach(function(d){
+  var e=document.createElement('div');e.className='mk';
+  e.innerHTML='<div class="h" style="background:'+d.c+'"></div><div class="t"></div><div class="t s"></div><div class="r"><div></div><div></div><div></div></div><div class="bt" style="background:'+d.a+'"></div>';
+  scr.appendChild(e);
+});
+var items=scr.children,k=0,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function show(i){
+  for(var j=0;j<items.length;j++)items[j].classList.toggle('on',j===i);
+  var s=demos[i].u;
+  if(reduce){urlEl.textContent=s;return}
+  urlEl.textContent='';var p=0;
+  var tm=setInterval(function(){urlEl.textContent=s.slice(0,++p);if(p>=s.length)clearInterval(tm)},55);
+}
+show(0);
+setInterval(function(){k=(k+1)%demos.length;show(k)},4200);
+
+// Filtr
+var tabs=document.querySelectorAll('.tab'),works=document.querySelectorAll('.work');
+tabs.forEach(function(t){t.addEventListener('click',function(){
+  tabs.forEach(function(x){x.setAttribute('aria-pressed',x===t)});
+  works.forEach(function(w){w.hidden=!(t.dataset.f==='all'||w.dataset.c===t.dataset.f)});
+})});
+
+// Forma: Telegramga yuborish
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  var txt='Salom! Men '+n.value+'. Sayt turi: '+t.value+'.'+(d.value?' '+d.value:'');
+  var msg=document.getElementById('m');
+  try{navigator.clipboard.writeText(txt);msg.textContent='Xabar nusxalandi. Telegram ochilmoqda — joylab yuboring.'}catch(x){msg.textContent='Telegram ochilmoqda.'}
+  window.open('https://t.me/vvebuz','_blank','noopener');
+});
+</script>
+</body>
+</html>
